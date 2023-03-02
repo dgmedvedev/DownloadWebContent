@@ -17,13 +17,12 @@ import java.util.concurrent.ExecutionException;
 // Тестовое приложение, которое выводит html код страницы, в окне Logcat
 public class MainActivity extends AppCompatActivity {
 
-    private String mailRu = "https://mail.ru/";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        String mailRu = "https://mail.ru/";
         // 1. Всегда, когда нужно читать данные из интернета, у приложения должен быть
         // разрешен доступ в интернет. Разрешение нужно добавить в AndroidManifest
         DownloadTask task = new DownloadTask();
@@ -43,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... strings) {
             StringBuilder result = new StringBuilder();
-            URL url = null;
+            URL url;
             HttpURLConnection urlConnection = null;
             try {
                 // передаем адрес для создания url
